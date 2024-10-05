@@ -24,11 +24,11 @@ services:
     image: phpmyadmin/phpmyadmin
     restart: unless-stopped
     ports:
-      - 8081:8081
+      - 8080:80
     env_file: .env
     environment:
       - PMA_HOST=mariadb
-      - MYSQL_ROOT_PASSWORD=null
+      - MYSQL_ROOT_PASSWORD=mvUBxUQSZ86s84lo3bcq
     networks:
       - laravel-network
 
@@ -45,6 +45,7 @@ services:
       - DB_HOST=mariadb
       - DB_PORT=3306
       - DB_USERNAME=${MYSQL_USER}
+      - DB_PASSWORD=${MYSQL_PASSWORD}
       - DB_DATABASE=${MYSQL_DATABASE}
     volumes:
       - laravel_data:/app
